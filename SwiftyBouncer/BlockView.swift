@@ -9,8 +9,8 @@
 import UIKit
 
 protocol BlockViewDelegate: class {
-    func addAttachFor(view: BlockView, touches: Set<UITouch>)
-    func updatePositionFor(view: BlockView, touches: Set<UITouch>)
+    func addAttachFor(blockView: BlockView, touches: Set<UITouch>)
+    func updatePositionFor(blockView: BlockView, touches: Set<UITouch>)
     func removeAttach()
 }
 
@@ -19,11 +19,11 @@ class BlockView: UIView {
     weak var blockViewDelegate: BlockViewDelegate?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        blockViewDelegate?.addAttachFor(view: self, touches: touches)
+        blockViewDelegate?.addAttachFor(blockView: self, touches: touches)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        blockViewDelegate?.updatePositionFor(view: self, touches: touches)
+        blockViewDelegate?.updatePositionFor(blockView: self, touches: touches)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

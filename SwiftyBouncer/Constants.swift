@@ -8,11 +8,17 @@
 
 import UIKit
 
+enum ViewType {
+    case UIView
+    case BlockView
+    case Unknown
+}
+
 let snapDamping: CGFloat = 0.5
 let anchorFrequency: CGFloat = 0.8
-let distanceForNewBlock: CGFloat = 110.0
+let distanceForNewBlock: Float = 110.0
 let speedDifferentialOfDestruction: CGFloat = 250.0
-let TimeDifferentialOfDestruction: CGFloat = 2.0
+let TimeDifferentialOfDestruction: TimeInterval = 2.0
 let smallBlockDensity: CGFloat = 3.0
 let elasticity: CGFloat = 0.5
 

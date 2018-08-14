@@ -13,6 +13,7 @@
 		AAB45A042123739D007B7FFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB45A032123739D007B7FFC /* Assets.xcassets */; };
 		AAB45A072123739D007B7FFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB45A052123739D007B7FFC /* LaunchScreen.storyboard */; };
 		AAB45A0F212374E2007B7FFC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB45A0E212374E2007B7FFC /* Constants.swift */; };
+		AAB45A1121237769007B7FFC /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB45A1021237769007B7FFC /* BlockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AAB45A062123739D007B7FFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAB45A082123739D007B7FFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB45A0E212374E2007B7FFC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AAB45A1021237769007B7FFC /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				AAB459FC2123739C007B7FFC /* AppDelegate.swift */,
+				AAB45A1021237769007B7FFC /* BlockView.swift */,
 				AAB459FE2123739C007B7FFC /* BouncerVC.swift */,
 				AAB45A0E212374E2007B7FFC /* Constants.swift */,
 				AAB45A002123739C007B7FFC /* Main.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAB45A1121237769007B7FFC /* BlockView.swift in Sources */,
 				AAB459FF2123739C007B7FFC /* BouncerVC.swift in Sources */,
 				AAB459FD2123739C007B7FFC /* AppDelegate.swift in Sources */,
 				AAB45A0F212374E2007B7FFC /* Constants.swift in Sources */,

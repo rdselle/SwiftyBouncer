@@ -23,11 +23,18 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    var blocks = [BlockView]()
+    var smallBlocksImmune = false
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         collider.translatesReferenceBoundsIntoBoundary = true
         collider.collisionDelegate = self
-        elastic.elasticity = elasticity
-        density.density = smallBlockDensity
+        elastic.elasticity = ELASTICITY
+        density.density = SMALL_BLOCK_DENSITY
         
         animator = UIDynamicAnimator(referenceView: view)
         animator.addBehavior(collider)
@@ -36,19 +43,13 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
         animator.addBehavior(density)
         
         motionManager.accelerometerUpdateInterval = 0.1
-    }
-    
-    var blocks = [BlockView]()
-    var smallBlocksImmune = false
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        
         start()
     }
     
     func start() {
         if blocks.isEmpty {
-            createNewBlock(at: initalCenter)
+            createNewBlock(at: INITIAL_CENTER)
         }
         
         if motionManager.isAccelerometerActive {
@@ -82,14 +83,14 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
         blocks.append(newBlock)
         
         if let block = blocks.last {
-            snap = UISnapBehavior(item: block, snapTo: initalCenter)
-            snap?.damping = snapDamping
+            snap = UISnapBehavior(item: block, snapTo: INITIAL_CENTER)
+            snap?.damping = SNAP_DAMPING
             animator.addBehavior(snap ?? UIDynamicBehavior())
         }
     }
     
     func addBlock(at location: CGPoint) -> BlockView {
-        let blockFrame = CGRect(x: location.x - blockSize.width / 2.0, y: location.y - blockSize.height / 2.0, width: blockSize.width, height: blockSize.height)
+        let blockFrame = CGRect(x: location.x - BLOCK_SIZE.width / 2.0, y: location.y - BLOCK_SIZE.height / 2.0, width: BLOCK_SIZE.width, height: BLOCK_SIZE.height)
         let block = BlockView(frame: blockFrame)
         block.backgroundColor = randomColor()
         view.addSubview(block)
@@ -98,7 +99,7 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
     
     func shouldCreateNewBlock(at blockCenter: CGPoint, touchLocation: CGPoint) -> Bool {
         let result = pythagorean(p: CGPoint(x: touchLocation.x - blockCenter.x, y: touchLocation.y - blockCenter.y))
-        return result > distanceForNewBlock ? true : false
+        return result > DISTANCE_FOR_NEW_BLOCK ? true : false
     }
     
     // MARK: BlockView delegate methods
@@ -152,9 +153,9 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
             let item1Speed = CGFloat(pythagorean(p: elastic.linearVelocity(for: item1)))
             let item2Speed = CGFloat(pythagorean(p: elastic.linearVelocity(for: item2)))
             
-            if item1Speed > item2Speed + speedDifferentialOfDestruction {
+            if item1Speed > item2Speed + SPEED_DIFFERENTIAL_OF_DESTRUCTION {
                 destroy(block: block2, behavior: behavior)
-            } else if item1Speed + speedDifferentialOfDestruction < item2Speed {
+            } else if item1Speed + SPEED_DIFFERENTIAL_OF_DESTRUCTION < item2Speed {
                 destroy(block: block1, behavior: behavior)
             }
         } else if item1Type == .BlockView {
@@ -215,7 +216,7 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
     
     func configurePush(view: UIView) {
         let angle = CGFloat(Double(arc4random() % 360) * .pi / 180.0)
-        let magnitude = CGFloat(Double(arc4random() % 2) + 0.5) * smallBlockDensity
+        let magnitude = CGFloat(Double(arc4random() % 2) + 0.5) * SMALL_BLOCK_DENSITY
         
         push = UIPushBehavior(items: [view], mode: .instantaneous)
         push?.setAngle(angle, magnitude: magnitude)

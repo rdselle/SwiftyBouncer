@@ -31,10 +31,10 @@ class BlockView: UIView {
     }
     
     func splitViewAndDestroy() -> [UIView] {
-        let corner1 = CGRect(x: frame.minX, y: frame.origin.y, width: blockSize.width / 2.0, height: blockSize.height / 2.0)
-        let corner2 = CGRect(x: frame.midX, y: frame.origin.y, width: blockSize.width / 2.0, height: blockSize.height / 2.0)
-        let corner3 = CGRect(x: frame.minX, y: frame.midY, width: blockSize.width / 2.0, height: blockSize.height / 2.0)
-        let corner4 = CGRect(x: frame.midX, y: frame.midY, width: blockSize.width / 2.0, height: blockSize.height / 2.0)
+        let corner1 = CGRect(x: frame.minX, y: frame.origin.y, width: BLOCK_SIZE.width / 2.0, height: BLOCK_SIZE.height / 2.0)
+        let corner2 = CGRect(x: frame.midX, y: frame.origin.y, width: BLOCK_SIZE.width / 2.0, height: BLOCK_SIZE.height / 2.0)
+        let corner3 = CGRect(x: frame.minX, y: frame.midY, width: BLOCK_SIZE.width / 2.0, height: BLOCK_SIZE.height / 2.0)
+        let corner4 = CGRect(x: frame.midX, y: frame.midY, width: BLOCK_SIZE.width / 2.0, height: BLOCK_SIZE.height / 2.0)
         
         let view1 = UIView(frame: corner1)
         view1.backgroundColor = backgroundColor

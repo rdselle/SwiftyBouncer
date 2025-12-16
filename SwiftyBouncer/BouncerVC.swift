@@ -53,10 +53,12 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
         }
         
         if motionManager.isAccelerometerActive {
-            motionManager.startAccelerometerUpdates(to: OperationQueue.main) { [unowned self] (accelerometerData, error) in
+            motionManager.startAccelerometerUpdates(to: OperationQueue.main) { [weak self] (accelerometerData, error) in
+                guard let self = self else { return }
                 let x = CGFloat(accelerometerData?.acceleration.x ?? 0.0 / 5.0)
                 let y = CGFloat(accelerometerData?.acceleration.y ?? 0.0 / 5.0)
-                switch UIApplication.shared.statusBarOrientation {
+                let orientation = self.currentInterfaceOrientation
+                switch orientation {
                 case .landscapeRight:
                     self.gravity.gravityDirection = CGVector(dx: -y, dy: -x)
                 case .landscapeLeft:
@@ -67,6 +69,8 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
                     self.gravity.gravityDirection = CGVector(dx: -x, dy: y)
                 case .unknown:
                     self.gravity.gravityDirection = CGVector(dx: 0.0, dy: 0.0)
+                @unknown default:
+                    self.gravity.gravityDirection = CGVector(dx: x, dy: -y)
                 }
             }
         }
@@ -99,7 +103,7 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
     
     func shouldCreateNewBlock(at blockCenter: CGPoint, touchLocation: CGPoint) -> Bool {
         let result = pythagorean(p: CGPoint(x: touchLocation.x - blockCenter.x, y: touchLocation.y - blockCenter.y))
-        return result > DISTANCE_FOR_NEW_BLOCK ? true : false
+        return result > DISTANCE_FOR_NEW_BLOCK
     }
     
     // MARK: BlockView delegate methods
@@ -176,7 +180,7 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
     }
     
     func destroy(block: BlockView, behavior: UICollisionBehavior) {
-        guard let blockIndex = blocks.index(of: block) else {
+        guard let blockIndex = blocks.firstIndex(of: block) else {
             return
         }
         
@@ -225,7 +229,15 @@ class BouncerVC: UIViewController, UICollisionBehaviorDelegate, BlockViewDelegat
     }
     
     // MARK: miscellaneous
-    
+
+    var currentInterfaceOrientation: UIInterfaceOrientation {
+        if #available(iOS 13.0, *) {
+            return view.window?.windowScene?.interfaceOrientation ?? .unknown
+        } else {
+            return UIApplication.shared.statusBarOrientation
+        }
+    }
+
     func pythagorean(p: CGPoint) -> Float {
         return sqrtf((powf(Float(p.x), 2) + powf(Float(p.y), 2)))
     }

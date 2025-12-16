@@ -11,6 +11,7 @@ import UIKit
 enum ViewType {
     case UIView
     case BlockView
+    case CircleView
     case Unknown
 }
 
@@ -22,4 +23,5 @@ let SMALL_BLOCK_DENSITY: CGFloat = 3.0
 let ELASTICITY: CGFloat = 0.5
 
 let BLOCK_SIZE = CGSize(width: 60.0, height: 60.0)
+let CIRCLE_SIZE = CGSize(width: 60.0, height: 60.0)
 let INITIAL_CENTER = CGPoint(x: 75.0, y: 80.0)

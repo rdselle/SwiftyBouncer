@@ -14,6 +14,7 @@
 		AAB45A072123739D007B7FFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB45A052123739D007B7FFC /* LaunchScreen.storyboard */; };
 		AAB45A0F212374E2007B7FFC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB45A0E212374E2007B7FFC /* Constants.swift */; };
 		AAB45A1121237769007B7FFC /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB45A1021237769007B7FFC /* BlockView.swift */; };
+		CC0000020000000000000001 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000020000000000000002 /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		AAB45A1021237769007B7FFC /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		AAB45A1221237800007B7FFC /* CLAUDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CLAUDE.md; sourceTree = "<group>"; };
 		AAB45A1421237802007B7FFC /* settings.local.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = settings.local.json; sourceTree = "<group>"; };
+		CC0000020000000000000002 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				AAB459FC2123739C007B7FFC /* AppDelegate.swift */,
 				AAB45A1021237769007B7FFC /* BlockView.swift */,
 				AAB459FE2123739C007B7FFC /* BouncerVC.swift */,
+				CC0000020000000000000002 /* CircleView.swift */,
 				AAB45A0E212374E2007B7FFC /* Constants.swift */,
 				AAB45A002123739C007B7FFC /* Main.storyboard */,
 				AAB45A032123739D007B7FFC /* Assets.xcassets */,
@@ -155,6 +158,7 @@
 			files = (
 				AAB45A1121237769007B7FFC /* BlockView.swift in Sources */,
 				AAB459FF2123739C007B7FFC /* BouncerVC.swift in Sources */,
+				CC0000020000000000000001 /* CircleView.swift in Sources */,
 				AAB459FD2123739C007B7FFC /* AppDelegate.swift in Sources */,
 				AAB45A0F212374E2007B7FFC /* Constants.swift in Sources */,
 			);

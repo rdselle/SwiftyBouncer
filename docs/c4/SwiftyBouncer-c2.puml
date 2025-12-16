@@ -1,0 +1,74 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+' C4 OFFICIAL REQUIREMENT: Title describing diagram type and scope
+title Container Diagram for SwiftyBouncer
+
+!$ICONURL = "https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v3.0.0/icons"
+!include $ICONURL/common.puml
+!include $ICONURL/font-awesome-6/mobile.puml
+!include $ICONURL/font-awesome-6/user.puml
+!include $ICONURL/font-awesome-6/gamepad.puml
+!include $ICONURL/font-awesome-6/cube.puml
+!include $ICONURL/font-awesome-6/circle.puml
+!include $ICONURL/font-awesome-6/gear.puml
+!include $ICONURL/devicons/swift.puml
+
+HIDE_STEREOTYPE()
+
+' ============================================================================
+' LEGEND/KEY
+' ============================================================================
+' Custom Relationship Tags:
+'   Green solid = Synchronous method calls within the app
+'   Blue dashed = Platform API calls
+'
+' Shapes:
+'   Person = User/Actor
+'   Container = Deployable unit (the iOS app)
+'   Component (shown as containers for detail) = Major modules within the app
+'   External System = Platform services
+'
+' Note: For a monolithic iOS app, we show the app as the container
+' with its major architectural components for clarity
+' ============================================================================
+
+AddRelTag(sync_relationship, $lineColor="green", $textColor="green")
+AddRelTag(platform_api, $lineColor="blue", $textColor="blue", $lineStyle="DashedLine")
+
+' Actors
+Person(mobile_user, "Mobile User", "iOS device user who plays the physics simulation game")
+
+' System Boundary - SwiftyBouncer iOS App
+System_Boundary(swifty_bouncer_boundary, "SwiftyBouncer iOS App") {
+
+    Container(bouncer_vc, "BouncerVC", "Swift/UIKit", "Main game controller managing physics simulation, collision detection, and user interactions", $sprite="gamepad")
+
+    Container(block_view, "BlockView", "Swift/UIView", "Custom square view with touch handling and fragment-on-destroy behavior", $sprite="cube")
+
+    Container(circle_view, "CircleView", "Swift/UIView", "Custom circular view with touch handling and fragment-on-destroy behavior", $sprite="circle")
+
+    Container(constants, "Constants", "Swift", "Game physics configuration values (elasticity, speed thresholds, sizes)", $sprite="gear")
+}
+
+' External Systems (Platform Services)
+System_Ext(uikit_dynamics, "UIKit Dynamics", "Physics simulation engine providing UIDynamicAnimator, collision behaviors, gravity, and snap behaviors")
+System_Ext(core_motion, "CoreMotion", "Device motion framework providing accelerometer data")
+
+' Relationships with technology/protocol labels (required for C2)
+
+' User interactions
+Rel(mobile_user, bouncer_vc, "Touches screen to create/drag blocks, tilts device", "Touch Events", $tags="sync_relationship")
+
+' Internal component relationships
+Rel(bouncer_vc, block_view, "Creates, manages lifecycle, receives delegate callbacks", "BlockViewDelegate protocol", $tags="sync_relationship")
+Rel(bouncer_vc, circle_view, "Creates, manages lifecycle, receives delegate callbacks", "CircleViewDelegate protocol", $tags="sync_relationship")
+Rel(bouncer_vc, constants, "Reads configuration values", "Static constants", $tags="sync_relationship")
+Rel(block_view, constants, "Uses BLOCK_SIZE for fragment dimensions", "Static constants", $tags="sync_relationship")
+Rel(circle_view, constants, "Uses CIRCLE_SIZE for fragment dimensions", "Static constants", $tags="sync_relationship")
+
+' Platform API relationships
+Rel(bouncer_vc, uikit_dynamics, "Configures animator, adds/removes behaviors, handles collisions", "UIKit Dynamics API", $tags="platform_api")
+Rel(bouncer_vc, core_motion, "Subscribes to accelerometer updates at 0.1s intervals", "CMMotionManager API", $tags="platform_api")
+
+@enduml

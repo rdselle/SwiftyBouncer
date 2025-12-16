@@ -1,0 +1,42 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+' C4 OFFICIAL REQUIREMENT: Title describing diagram type and scope
+title System Context Diagram for SwiftyBouncer
+
+!$ICONURL = "https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v3.0.0/icons"
+!include $ICONURL/common.puml
+!include $ICONURL/font-awesome-6/mobile.puml
+!include $ICONURL/font-awesome-6/user.puml
+
+HIDE_STEREOTYPE()
+
+' ============================================================================
+' LEGEND/KEY
+' ============================================================================
+' Shapes:
+'   Person = User/Actor who interacts with the system
+'   Software System = The SwiftyBouncer application
+'   External System = Platform services the app depends on
+'
+' Colors:
+'   Blue = Internal system (SwiftyBouncer)
+'   Gray = External systems/platform services
+' ============================================================================
+
+' Actors
+Person(mobile_user, "Mobile User", "iOS device user who plays the physics simulation game")
+
+' Main Software System
+System(swifty_bouncer, "SwiftyBouncer", "Native iOS physics simulation game where users create blocks that interact with gravity and collide with each other", $sprite="mobile")
+
+' External Systems (Platform Services)
+System_Ext(ios_platform, "iOS Platform", "Provides UIKit framework for UI rendering and UIKit Dynamics for physics simulation")
+System_Ext(core_motion, "CoreMotion", "Provides device accelerometer data for gravity direction control")
+
+' Relationships - High-level interactions (no technology details at C1 level)
+Rel(mobile_user, swifty_bouncer, "Creates blocks, drags to position, tilts device to control gravity")
+Rel(swifty_bouncer, ios_platform, "Renders UI, simulates physics collisions and behaviors")
+Rel(swifty_bouncer, core_motion, "Reads accelerometer data to determine gravity direction")
+
+@enduml

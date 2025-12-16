@@ -41,6 +41,7 @@
 		AAB45A1421237802007B7FFC /* settings.local.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = settings.local.json; sourceTree = "<group>"; };
 		CC000001000000000000001B /* BlockViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewTests.swift; sourceTree = "<group>"; };
 		CC000001000000000000001D /* SwiftyBouncerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyBouncerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC0000010000000000000027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				CC000001000000000000001B /* BlockViewTests.swift */,
+				CC0000010000000000000027 /* Info.plist */,
 			);
 			path = SwiftyBouncerTests;
 			sourceTree = "<group>";
@@ -414,7 +416,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 869YR66HM8;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = SwiftyBouncerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -434,7 +436,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 869YR66HM8;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = SwiftyBouncerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

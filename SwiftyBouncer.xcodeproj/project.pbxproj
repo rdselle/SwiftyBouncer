@@ -37,6 +37,8 @@
 		AAB45A082123739D007B7FFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB45A0E212374E2007B7FFC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AAB45A1021237769007B7FFC /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
+		AAB45A1221237800007B7FFC /* CLAUDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CLAUDE.md; sourceTree = "<group>"; };
+		AAB45A1421237802007B7FFC /* settings.local.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = settings.local.json; sourceTree = "<group>"; };
 		CC000001000000000000001B /* BlockViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewTests.swift; sourceTree = "<group>"; };
 		CC000001000000000000001D /* SwiftyBouncerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyBouncerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -62,10 +64,20 @@
 		AAB459F02123739C007B7FFC = {
 			isa = PBXGroup;
 			children = (
+				AAB45A1321237801007B7FFC /* .claude */,
+				AAB45A1221237800007B7FFC /* CLAUDE.md */,
 				AAB459FB2123739C007B7FFC /* SwiftyBouncer */,
 				CC000001000000000000001F /* SwiftyBouncerTests */,
 				AAB459FA2123739C007B7FFC /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		AAB45A1321237801007B7FFC /* .claude */ = {
+			isa = PBXGroup;
+			children = (
+				AAB45A1421237802007B7FFC /* settings.local.json */,
+			);
+			path = .claude;
 			sourceTree = "<group>";
 		};
 		AAB459FA2123739C007B7FFC /* Products */ = {
@@ -365,7 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 869YR66HM8;
+				DEVELOPMENT_TEAM = VAXQG2873C;
 				INFOPLIST_FILE = SwiftyBouncer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -383,7 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 869YR66HM8;
+				DEVELOPMENT_TEAM = VAXQG2873C;
 				INFOPLIST_FILE = SwiftyBouncer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

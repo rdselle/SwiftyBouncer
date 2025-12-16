@@ -14,7 +14,18 @@
 		AAB45A072123739D007B7FFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB45A052123739D007B7FFC /* LaunchScreen.storyboard */; };
 		AAB45A0F212374E2007B7FFC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB45A0E212374E2007B7FFC /* Constants.swift */; };
 		AAB45A1121237769007B7FFC /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB45A1021237769007B7FFC /* BlockView.swift */; };
+		CC000001000000000000001A /* BlockViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000001000000000000001B /* BlockViewTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CC000001000000000000001C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAB459F12123739C007B7FFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAB459F82123739C007B7FFC;
+			remoteInfo = SwiftyBouncer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AAB459F92123739C007B7FFC /* SwiftyBouncer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyBouncer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +37,19 @@
 		AAB45A082123739D007B7FFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB45A0E212374E2007B7FFC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AAB45A1021237769007B7FFC /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
+		CC000001000000000000001B /* BlockViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewTests.swift; sourceTree = "<group>"; };
+		CC000001000000000000001D /* SwiftyBouncerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyBouncerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AAB459F62123739C007B7FFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC000001000000000000001E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				AAB459FB2123739C007B7FFC /* SwiftyBouncer */,
+				CC000001000000000000001F /* SwiftyBouncerTests */,
 				AAB459FA2123739C007B7FFC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				AAB459F92123739C007B7FFC /* SwiftyBouncer.app */,
+				CC000001000000000000001D /* SwiftyBouncerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +90,14 @@
 				AAB45A082123739D007B7FFC /* Info.plist */,
 			);
 			path = SwiftyBouncer;
+			sourceTree = "<group>";
+		};
+		CC000001000000000000001F /* SwiftyBouncerTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC000001000000000000001B /* BlockViewTests.swift */,
+			);
+			path = SwiftyBouncerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,18 +120,40 @@
 			productReference = AAB459F92123739C007B7FFC /* SwiftyBouncer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CC0000010000000000000020 /* SwiftyBouncerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC0000010000000000000021 /* Build configuration list for PBXNativeTarget "SwiftyBouncerTests" */;
+			buildPhases = (
+				CC0000010000000000000022 /* Sources */,
+				CC000001000000000000001E /* Frameworks */,
+				CC0000010000000000000023 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC0000010000000000000024 /* PBXTargetDependency */,
+			);
+			name = SwiftyBouncerTests;
+			productName = SwiftyBouncerTests;
+			productReference = CC000001000000000000001D /* SwiftyBouncerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		AAB459F12123739C007B7FFC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Robert Sellers";
 				TargetAttributes = {
 					AAB459F82123739C007B7FFC = {
 						CreatedOnToolsVersion = 9.4.1;
+					};
+					CC0000010000000000000020 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = AAB459F82123739C007B7FFC;
 					};
 				};
 			};
@@ -119,6 +171,7 @@
 			projectRoot = "";
 			targets = (
 				AAB459F82123739C007B7FFC /* SwiftyBouncer */,
+				CC0000010000000000000020 /* SwiftyBouncerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -131,6 +184,13 @@
 				AAB45A072123739D007B7FFC /* LaunchScreen.storyboard in Resources */,
 				AAB45A042123739D007B7FFC /* Assets.xcassets in Resources */,
 				AAB45A022123739C007B7FFC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC0000010000000000000023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +208,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC0000010000000000000022 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC000001000000000000001A /* BlockViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CC0000010000000000000024 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAB459F82123739C007B7FFC /* SwiftyBouncer */;
+			targetProxy = CC000001000000000000001C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AAB45A002123739C007B7FFC /* Main.storyboard */ = {
@@ -320,6 +396,46 @@
 			};
 			name = Release;
 		};
+		CC0000010000000000000025 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 869YR66HM8;
+				INFOPLIST_FILE = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rdstest.SwiftyBouncerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyBouncer.app/SwiftyBouncer";
+			};
+			name = Debug;
+		};
+		CC0000010000000000000026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 869YR66HM8;
+				INFOPLIST_FILE = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rdstest.SwiftyBouncerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyBouncer.app/SwiftyBouncer";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -337,6 +453,15 @@
 			buildConfigurations = (
 				AAB45A0C2123739D007B7FFC /* Debug */,
 				AAB45A0D2123739D007B7FFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC0000010000000000000021 /* Build configuration list for PBXNativeTarget "SwiftyBouncerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC0000010000000000000025 /* Debug */,
+				CC0000010000000000000026 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
